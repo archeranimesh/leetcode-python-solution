@@ -1,5 +1,6 @@
 # 1299. Replace Elements with Greatest Element on Right Side
 # https://www.youtube.com/watch?v=ZHjKhUjcsaU
+# https://ashhad.in/list/
 arr = [17, 18, 5, 4, 6, 1]
 # Output: [18,6,6,6,1,-1]
 print(arr)

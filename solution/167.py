@@ -1,30 +1,17 @@
 # 167. Two Sum II - Input Array Is Sorted
 # https://www.youtube.com/watch?v=cQ1Oz4ckceM
 
-nums = [1, 3, 4, 5, 7, 10, 11]
+numbers = [1, 3, 4, 5, 7, 10, 11]
 target = 9
+left_pointer, right_pointer = 0, len(numbers) - 1
 
-length = len(nums)
-i = 0
-flag = False
-exit_flag = False
-while i < length:
-    print(i, "-->", nums[i])
-    j = i
-    while j < length:
-        print("\t", j, "==>", nums[j])
-        total = nums[i] + nums[j]
-        if total == target:
-            print("\t\t target index", i, j)
-            exit_flag = True
-            flag = True
-        elif total > target:
-            flag = True
-        if flag:
-            flag = False
-            break
-        j += 1
+while left_pointer < right_pointer:
+    cur_sum = numbers[left_pointer] + numbers[right_pointer]
 
-    i += 1
-    if exit_flag:
+    if cur_sum > target:
+        right_pointer -= 1
+    elif cur_sum < target:
+        left_pointer += 1
+    else:
+        print("\t\t target index", left_pointer, right_pointer)
         break

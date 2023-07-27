@@ -6,28 +6,18 @@ nums = [-2, 1, -3, 4, -1, 2, 1, -5, 4]
 
 
 def maxSubArray(nums) -> int:
-    length = len(nums)
-    i = 0
-    sum_outer = float("-inf")
+    max_sum = float("-inf")
+    current_sum = 0
+    for num in nums:
+        current_sum += num
+        print("nums ", num, " sum= ", current_sum)
+        if current_sum > max_sum:
+            max_sum = current_sum
+        if current_sum < 0:
+            current_sum = 0
+        print("\tnums ", num, " sum= ", current_sum)
 
-    while i < length:
-        j = i
-        print("i = ", nums[i])
-        while j < length:
-            print("\tj= ", nums[j])
-            k = i
-            j += 1
-            sum_inner = 0
-            while k < j:
-                print("\t\tk = ", nums[k], sum_inner, sum_outer)
-                sum_inner += nums[k]
-                if sum_inner > sum_outer:
-                    sum_outer = sum_inner
-                print("\t\t[2]k = ", nums[k], sum_inner, sum_outer)
-
-                k += 1
-        i += 1
-    return sum_outer
+    return max_sum
 
 
 print("SUM = ", maxSubArray(nums))

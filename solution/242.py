@@ -5,11 +5,9 @@
 s = "anagram"
 t = "nagaram"
 
-from collections import Counter
-
 
 def isAnagram(s: str, t: str) -> bool:
-    return Counter(s) == Counter(t)
+    return sorted(s) == sorted(t)
 
 
 print(isAnagram(s, t))
